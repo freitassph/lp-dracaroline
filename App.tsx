@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { 
   Menu, X, MapPin, Calendar, Clock, Brain, 
   Quote, ExternalLink, ArrowRight, MessageCircle, 
-  Wifi, ShieldCheck, ChevronDown, ChevronUp, AlertCircle, HeartPulse,
-  Phone, CheckCircle2, Instagram, Sparkles, Star, ArrowUp, Video, Lock, Map, Hourglass
+  ShieldCheck, ChevronDown, ChevronUp, AlertCircle, HeartPulse,
+  CheckCircle2, Sparkles, Star, ArrowUp, Video
 } from 'lucide-react';
+import { FreitasLabCredit } from './components/FreitasLabCredit';
 import FadeIn from './components/FadeIn';
 import Button from './components/Button';
 
@@ -765,17 +766,7 @@ const App: React.FC = () => {
              <p className="text-xs text-white/30 tracking-wider">
                © {new Date().getFullYear()} Dra. Caroline Aires. Todos os direitos reservados.
              </p>
-             <div className="flex flex-col items-center gap-2">
-               <span className="text-xs text-white/30 uppercase tracking-[0.2em]">Designed for Excellence</span>
-               <a 
-                 href="https://instagram.com/freitas.lab" 
-                 target="_blank" 
-                 rel="noreferrer"
-                 className="text-xs text-white/50 hover:text-lux-secondary transition-colors font-medium tracking-wide"
-               >
-                 @freitas.lab
-               </a>
-             </div>
+             <FreitasLabCredit theme="dark" />
           </div>
         </div>
       </footer>

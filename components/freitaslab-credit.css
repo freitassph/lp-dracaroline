@@ -1,0 +1,85 @@
+/* Freitas.Lab footer signature v1.0.0 — 2026-09-23.
+   Shared by HTML, Astro and React. Load once, after the host's footer styles.
+   The host owns placement. Override only color variables/font as documented. */
+.fl-credit {
+  --fl-credit-color: #4f4d49;
+  --fl-credit-strong: #0b0b0c;
+  --fl-credit-muted: #66615b;
+  --fl-credit-accent: #0b0b0c;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  gap: 0.65rem;
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px 2px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--fl-credit-color);
+  font-family: var(--fl-credit-font, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: none;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color 180ms ease, transform 180ms ease;
+}
+.fl-credit[data-theme="dark"] {
+  --fl-credit-color: #c9c5bd;
+  --fl-credit-strong: #f3f0e9;
+  --fl-credit-muted: #b4afa6;
+  --fl-credit-accent: #ffffff;
+}
+.fl-credit .fl-credit__copy { display: grid; gap: 1px; min-width: 0; }
+.fl-credit .fl-credit__line { overflow-wrap: anywhere; }
+.fl-credit .fl-credit__line strong { color: var(--fl-credit-strong); font-weight: 600; transition: color 180ms ease; }
+.fl-credit .fl-credit__tagline { display: block; font-size: 12px; color: var(--fl-credit-muted); }
+.fl-credit .fl-credit__arrow { display: block; flex: 0 0 16px; color: var(--fl-credit-strong); transition: transform 180ms ease, color 180ms ease; }
+.fl-credit::after {
+  content: "";
+  position: absolute;
+  inset-inline: 2px;
+  bottom: 3px;
+  height: 1px;
+  background: var(--fl-credit-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .fl-credit:hover { color: var(--fl-credit-accent); }
+  .fl-credit:hover .fl-credit__line strong, .fl-credit:hover .fl-credit__arrow { color: var(--fl-credit-accent); }
+  .fl-credit:hover::after { transform: scaleX(1); }
+  .fl-credit:hover .fl-credit__arrow { transform: translate(2px, -2px); }
+}
+.fl-credit:focus-visible { outline: 2px solid var(--fl-credit-accent); outline-offset: 5px; }
+.fl-credit:focus-visible::after, .fl-credit:active::after { transform: scaleX(1); }
+.fl-credit:active { transform: scale(0.98); }
+.fl-credit .fl-credit__sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .fl-credit, .fl-credit::after, .fl-credit .fl-credit__arrow, .fl-credit .fl-credit__line strong { transition: none; }
+  .fl-credit:active, .fl-credit:hover .fl-credit__arrow { transform: none; }
+}
+@media (forced-colors: active) {
+  .fl-credit { color: LinkText; }
+  .fl-credit .fl-credit__line strong, .fl-credit .fl-credit__tagline, .fl-credit .fl-credit__arrow { color: LinkText; }
+  .fl-credit:focus-visible { outline-color: Highlight; }
+  .fl-credit::after { background: LinkText; }
+}
+
+/* Host integration: typography and interaction accent follow this site's design. */
+a.fl-credit[data-theme="dark"] {
+  font-family: Montserrat, sans-serif;
+  --fl-credit-accent: #e3b6a0;
+}
+
+/* Leave the signature above the existing floating contact controls. */
+@media (max-width: 767px) { footer .fl-credit { margin-bottom: 80px; } }
