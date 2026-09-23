@@ -78,7 +78,10 @@
 /* Host integration: typography and interaction accent follow this site's design. */
 a.fl-credit[data-theme="dark"] {
   font-family: Montserrat, sans-serif;
-  --fl-credit-accent: #e3b6a0;
+  --fl-credit-color: #b8aaa2;
+  --fl-credit-strong: #c0afa4;
+  --fl-credit-muted: #b2a39a;
+  --fl-credit-accent: #c4ac9b;
 }
 
 /* Leave the signature above the existing floating contact controls. */
