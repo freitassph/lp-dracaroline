@@ -3,7 +3,7 @@ import './freitaslab-credit.css';
 // No client directive, JavaScript handler or icon dependency is required.
 export function FreitasLabCredit({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
   return (
-<a className="fl-credit" data-theme={theme} href="https://www.instagram.com/freitas.lab/" target="_blank" rel="noopener noreferrer">
+<a className="fl-credit" data-theme={theme} href="https://www.instagram.com/eupedrofreitas_/" target="_blank" rel="noopener noreferrer">
   <span className="fl-credit__copy">
     <span className="fl-credit__line">Criado por <strong>Pedro Freitas</strong> · <strong>Freitas.Lab</strong></span>
     <span className="fl-credit__tagline">Marca e tecnologia</span>
