@@ -28,3 +28,11 @@ dist-ssr
 /docs/marketing/2026-11-09-captacao/
 /docs/marketing/2026-11-11-reuniao/
 /docs/security/2026-10-23-auditoria-dependencias.md
+
+# Credenciais e metadados locais.
+.env
+.env.*
+!.env.example
+!.env.*.example
+/.vercel/
+service-account*.json
