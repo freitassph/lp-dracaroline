@@ -64,3 +64,14 @@ A maneira mais fácil de implantar este projeto é usar a Vercel:
 
 ---
 Desenvolvido com foco em UX/UI para área médica.
+
+## Runtime local — atualização de 2026-10-21
+
+Use `nvm use` na raiz e confira `node --version`: o pin local é 24.22.1; `engines.node: 24.x` preserva a seleção por major das plataformas.
+
+A atualização acompanha [os patches oficiais de segurança do Node.js](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases). Dependências da aplicação foram preservadas. Execute os checks existentes com esse runtime. Os recibos por comando ficam em `/Users/freitass_ph/Documents/Codex/2026-10-21/atualizacao-node-010312Z/outros-projetos-result.json`. Validação local não prova CI, imagem reconstruída ou patch em produção; essas camadas permanecem `NOT_RUN` nesta entrega.
+
+
+## Restauração de dependências — 23/10/2026
+
+Por pedido do usuário, os manifests e a instalação local voltaram à pré-imagem anterior à auditoria de 23/10. Conteúdo e estilos foram preservados. Esta reversão não foi publicada; o remoto já mantinha as versões anteriores. Os relatórios de auditoria permanecem históricos; seus alertas voltam a se aplicar ao grafo restaurado. Recuperação e hashes: `/Users/freitass_ph/Documents/Codex/2026-10-23/publicacao-dependencias/user-followup/LP-RESTORE.json`.
