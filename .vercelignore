@@ -1,9 +1,22 @@
-# Arquivos de desenvolvimento e material comercial privado
+# Dependências e arquivos gerados no desenvolvimento
 /node_modules/
 /dist/
-/.env
-/.env.*
-!/.env.example
-/docs/marketing/
-/docs/security/2026-10-23-auditoria-dependencias.md
+/dist-ssr/
+/.vite/
+/coverage/
+/test-results/
+/playwright-report/
+*.tsbuildinfo
+*.log
+.DS_Store
+/.idea/
+/.vscode/
+
+# Configuração local, credenciais e material interno
+.env
+.env.*
+*.local
+/.vercel/
+service-account*.json
+/docs/
 /README.md

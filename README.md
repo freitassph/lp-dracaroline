@@ -1,77 +1,33 @@
-# Dra. Caroline Aires - Landing Page Psiquiátrica
+# Dra. Caroline Aires
 
-![Project Status](https://img.shields.io/badge/status-active-success.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+Site de psiquiatria particular em Campinas e online. React renderiza as páginas no build. O visitante recebe HTML estático com estilos e um módulo de interação. O contato é iniciado no WhatsApp do consultório.
 
-Uma Landing Page de alta conversão desenvolvida para a Dra. Caroline Aires, focada em Psiquiatria Integrativa. O projeto segue uma estética "Quiet Luxury", priorizando acolhimento, autoridade e acessibilidade.
+## Desenvolvimento
 
-## 🚀 Tecnologias Utilizadas
+Use Node 24 conforme `.nvmrc`.
 
-- **React 18** (UI Library)
-- **Vite** (Build Tool & Dev Server)
-- **TypeScript** (Segurança de tipos)
-- **Tailwind CSS** (Estilização utilitária via CDN para agilidade)
-- **Lucide React** (Ícones modernos e leves)
-
-## 🎨 Design System
-
-- **Paleta de Cores**: Tons terrosos sofisticados (Castanha, Cobre Suave, Alabaster).
-- **Tipografia**: *Playfair Display* (Títulos/Serifa) e *Montserrat* (Corpo/Sans-serif).
-- **Acessibilidade**: Contraste ajustado para conformidade WCAG AA.
-
-## 🛠️ Como rodar o projeto localmente
-
-1. **Clone o repositório**
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repo.git
-   cd nome-do-repo
-   ```
-
-2. **Instale as dependências**
-   ```bash
-   npm install
-   ```
-
-3. **Inicie o servidor de desenvolvimento**
-   ```bash
-   npm run dev
-   ```
-   O projeto estará rodando em `http://localhost:5173`.
-
-## 📦 Como fazer Deploy na Vercel
-
-A maneira mais fácil de implantar este projeto é usar a Vercel:
-
-1. Suba este código para o seu **GitHub**.
-2. Crie uma conta na [Vercel](https://vercel.com).
-3. Clique em **"Add New..."** > **"Project"**.
-4. Selecione o repositório do GitHub.
-5. A Vercel detectará automaticamente que é um projeto **Vite**.
-6. Clique em **Deploy**.
-
-## 📁 Estrutura de Pastas
-
-```
-/
-├── components/       # Botões, Animações (FadeIn)
-├── App.tsx           # Componente Principal
-├── index.tsx         # Ponto de entrada React
-├── index.html        # HTML base
-├── package.json      # Dependências e Scripts
-├── tsconfig.json     # Configuração TypeScript
-└── vite.config.ts    # Configuração do Vite
+```sh
+npm ci
+npm run dev
+npm run check
 ```
 
----
-Desenvolvido com foco em UX/UI para área médica.
+`npm run check` executa TypeScript, gera `dist/` e verifica páginas, arquivos de descoberta, destinos e imagens de marca. Use `npm run preview` para conferir o build local. O arquivo `vercel.json` configura URLs limpas, redirecionamento para a home e cabeçalhos de publicação.
 
-## Runtime local — atualização de 2026-10-21
+## Onde editar
 
-Use `nvm use` na raiz e confira `node --version`: o pin local é 24.22.1; `engines.node: 24.x` preserva a seleção por major das plataformas.
+- `src/site.ts` concentra identificação, origem, contato, endereço e mensagens por modalidade.
+- `src/home.tsx`, `src/content.ts` e `src/pages.tsx` concentram a home, as leituras e as páginas legais.
+- `src/site.css` contém escala tipográfica, cor, layout responsivo e motion. `src/icons.tsx` contém os vetores.
+- `src/search.tsx` gera os metadados e arquivos de descoberta. `scripts/prerender.mjs` escreve as rotas estáticas.
+- `src/consent.ts` e `src/analytics.ts` implementam as preferências e a medição com opt-in.
+- `public/assets/og-caroline.png` é o Open Graph 1200 × 630. A composição editável está em `docs/brand/open-graph.html` e usa os assets públicos da página. `public/favicon.svg` é a matriz vetorial para ICO e Apple Touch.
 
-A atualização acompanha [os patches oficiais de segurança do Node.js](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases). Dependências da aplicação foram preservadas. Execute os checks existentes com esse runtime. Os recibos por comando ficam em `/Users/freitass_ph/Documents/Codex/2026-10-21/atualizacao-node-010312Z/outros-projetos-result.json`. Validação local não prova CI, imagem reconstruída ou patch em produção; essas camadas permanecem `NOT_RUN` nesta entrega.
+## Aceite e operação
 
+A origem pública configurada é `https://dracaroline.vercel.app/`. A home é a única URL no sitemap. Leituras e páginas legais são navegáveis e usam `noindex, follow`. A medição começa desligada. Quando o stream aprovado for configurado no domínio oficial, o aviso oferece consentimento, recusa e revisão das preferências. A documentação descreve a operação do stream e da Meta Ads.
 
-## Restauração de dependências — 23/10/2026
-
-Por pedido do usuário, os manifests e a instalação local voltaram à pré-imagem anterior à auditoria de 23/10. Conteúdo e estilos foram preservados. Esta reversão não foi publicada; o remoto já mantinha as versões anteriores. Os relatórios de auditoria permanecem históricos; seus alertas voltam a se aplicar ao grafo restaurado. Recuperação e hashes: `/Users/freitass_ph/Documents/Codex/2026-10-23/publicacao-dependencias/user-followup/LP-RESTORE.json`.
+- [Produto, conteúdo e fontes](docs/01-produto-e-conteudo.md)
+- [Marca, design e motion](docs/02-marca-design-e-motion.md)
+- [Busca, mensuração e segurança](docs/03-busca-mensuracao-e-seguranca.md)
+- [Auditoria e validação](docs/04-auditoria.md)

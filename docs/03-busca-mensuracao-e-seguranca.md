@@ -1,0 +1,35 @@
+# Dra. Caroline Aires · Busca, mensuração e segurança
+
+## Origem e intenção de busca
+
+Em 21/11/2026, o host `dracaroline.vercel.app` retornou HTTP 200 e o endereço estava na bio pública mostrada pelo usuário. O canonical antigo para `www.dracarolineaires.com.br` retornou NXDOMAIN, assim como o domínio sem www. Os caminhos antigos `/robots.txt`, `/sitemap.xml` e uma rota inexistente devolviam HTML 200 pela regra abrangente. A origem adotada é o host público verificável. Se o domínio próprio passar a ser o oficial, mude a configuração canônica e prove o redirecionamento da origem anterior no mesmo release.
+
+A página inicial responde primeiro a “psiquiatra em Campinas”, “consulta psiquiátrica particular em Campinas” e “psiquiatra online”. Nome, área, modalidades, condições e contato aparecem em texto. Dados estruturados descrevem pessoa, especialidade registrada, serviços e relações coerentes com o que está visível. O Espaço Núr está no texto e nos dados estruturados como local de serviço, com o endereço confirmado pelo usuário. Horários da médica e coordenadas precisas seguem fora da oferta. Guias acessíveis e dúvidas curtas apoiam a intenção de primeira consulta. O sitemap contém a home. Rotas internas usam `noindex, follow` e ficam rastreáveis para a leitura dessa diretiva. `robots.txt` permite a busca, inclusive OAI-SearchBot. GPTBot fica bloqueado para separar a busca do uso para treinamento na OpenAI. `llms.txt` resume somente fatos públicos.
+
+Após autorização de publicação, faça inspeção do URL na propriedade Search Console, submissão do sitemap no Google e no Bing e verificação da edição pública. Confirme a elegibilidade do perfil da profissional no endereço compartilhado antes de editar o Google Business Profile. Observe em 28 dias indexação, consultas por praça/tema e impressões de marca e descoberta. Citabilidade depende de fonte, recrawl e seleção de cada produto. Ranking, prazo, Maps e citações requerem observação do destino.
+
+[Google · recursos de IA](https://developers.google.com/search/docs/appearance/ai-features) · [Google · noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing) · [Bing · diretrizes](https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a) · [Google · busca local](https://support.google.com/business/answer/7091?hl=pt-BR) · [OpenAI · descoberta](https://help.openai.com/en/articles/12627856-publishers-and-developers-faq)
+
+## Consentimento, GA4 e Meta
+
+| Atividade | Dado e finalidade | Decisão operacional |
+| --- | --- | --- |
+| Entrega da página | IP e metadados técnicos no nível da hospedagem, para entregar e proteger a resposta. | Site sem backend. Controladora verifica hipótese, contrato, logs, acesso e retenção com o provedor. |
+| Preferências | Escolha opcional, versão e validade de 180 dias no armazenamento do navegador. | O aviso aparece somente quando existe um stream de medição habilitado no domínio oficial. Recusa e aceite com o mesmo destaque. Reabertura permanente no rodapé. |
+| Medição GA4 | Exposição da home e origem/meio em categorias de campanha aprovadas. Cookies próprios do fornecedor e metadados técnicos no uso autorizado. | Modo básico após opt-in, parâmetro explícito do stream. URL canônica e título neutro. Sinais de publicidade, links de saída, cliques de contato, pesquisas, tópicos e atributos de saúde ficam fora. |
+| Contato | Número público do consultório e mensagem administrativa pré-preenchida conforme a modalidade. A pessoa decide o que enviar no WhatsApp. | Aviso de finalidade, orientação para guardar informações clínicas para a consulta, link sem referência da origem. |
+| Meta Ads | Origem de campanha por UTM controlada e relatório agregado de campanha no painel. | Sem Pixel, CAPI, remarketing ou audiência baseada no comportamento da LP psiquiátrica. Nenhuma ativação com permissões de conta ou sinais de saúde não verificados. |
+
+Ative `VITE_GA4_MEASUREMENT_ID` apenas em uma propriedade e ambiente autorizados. No stream, desative Medição Aprimorada, Google Signals, links de Ads e coleta fornecida pelo usuário. Confira a resposta real do fornecedor com Tag Assistant e DebugView, após consentimento informado. A desativação operacional consiste em remover o ID e reconstruir o artefato. Cada mudança material na política incrementa a versão da preferência.
+
+O roteiro de mídia lê impressões e cliques no painel da Meta e visitas de origem autorizadas no GA4, com `utm_source=instagram` ou `facebook` e `utm_medium=paid_social`. Para Google use `utm_source=google&utm_medium=cpc`. A equipe apura semanalmente totais administrativos de contatos, consultas agendadas e consultas realizadas. A taxa de comparecimento tem consultas agendadas como denominador. O CPA de consulta realizada só é calculado quando uma origem agregada for confiável e no mesmo intervalo. Ficam pendentes baseline, conta, retenção, política de fornecedor, condições de transferência, capacidade e decisão de verba. Uma diferença entre painéis permanece diferença de método e janela.
+
+[ANPD · guia de cookies](https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-cookies-e-protecao-de-dados-pessoais.pdf/@@display-file/file) · [LGPD, arts. 6º, 8º, 9º, 11 e 18](https://planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm) · [Google Consent Mode](https://developers.google.com/tag-platform/security/guides/consent?consentmode=basic) · [Políticas Google Analytics](https://support.google.com/analytics/answer/13297105?hl=en) · [Meta · restrições de conversões](https://developers.facebook.com/docs/marketing-api/reference/custom-conversion/v19.0/)
+
+## Publicidade, dados e fronteiras técnicas
+
+A página é da médica individual. Os arts. 4º e 6º da Resolução CFM 2.336/2023 orientam identificação com nome, médica, CRM da UF de exercício, especialidade e RQE na home. A Resolução CFM 2.314/2022 orienta a compatibilidade clínica da teleconsulta. O conteúdo permanece informativo, sem orientação de dose, emissão automática de receita, triagem, depoimento, superioridade ou garantia. Para emergência, SAMU 192 ou pronto atendimento.
+
+Arquitetura proposta com React/Vite e HTML estático pré-renderizado, um módulo curto de interação, nenhum banco ou endpoint de coleta. Fontes e retrato locais reduzem requisições a terceiros. O build gera HTML de erro e nenhum rewrite abrangente. Cabeçalhos restringem execução externa ao caso GA4 opt-in, embeds, formulários e permissões. Revisão estática e verificação de dependências são defensivas e limitadas ao projeto. O rollback de publicação, quando autorizado, usa a última revisão estável no provedor. O licenciamento, a revisão da profissional e a validação de fornecedor integram o aceite público.
+
+[CFM · Publicidade médica](https://sistemas.cfm.org.br/normas/visualizar/resolucoes/BR/2023/2336) · [CFM · Telemedicina](https://sistemas.cfm.org.br/normas/visualizar/resolucoes/BR/2022/2314) · [Ministério da Saúde · SAMU 192](https://www.gov.br/saude/pt-br/composicao/saes/samu-192/samu-192)

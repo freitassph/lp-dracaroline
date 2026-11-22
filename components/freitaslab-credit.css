@@ -75,14 +75,10 @@
   .fl-credit::after { background: LinkText; }
 }
 
-/* Host integration: typography and interaction accent follow this site's design. */
-a.fl-credit[data-theme="dark"] {
-  font-family: Montserrat, sans-serif;
-  --fl-credit-color: #b8aaa2;
-  --fl-credit-strong: #c0afa4;
-  --fl-credit-muted: #b2a39a;
-  --fl-credit-accent: #c4ac9b;
+.site-footer .fl-credit {
+  --fl-credit-font: var(--body);
+  --fl-credit-color: var(--dark-muted);
+  --fl-credit-strong: var(--dark-text);
+  --fl-credit-muted: var(--dark-muted);
+  --fl-credit-accent: #f2c6ae;
 }
-
-/* Leave the signature above the existing floating contact controls. */
-@media (max-width: 767px) { footer .fl-credit { margin-bottom: 80px; } }

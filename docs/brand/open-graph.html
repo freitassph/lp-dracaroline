@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="UTF-8">
+<title>Open Graph · Dra. Caroline Aires</title>
+<style>
+  @font-face {
+    font-family: Instrument;
+    src: url('/assets/fonts/instrument-serif.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: Instrument;
+    font-style: italic;
+    src: url('/assets/fonts/instrument-serif-italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: Inter;
+    font-weight: 100 900;
+    src: url('/assets/fonts/inter.woff2') format('woff2');
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  .canvas {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 1200px;
+    height: 630px;
+    color: #faf5ec;
+    background: #35231e;
+  }
+  .frame {
+    position: absolute;
+    inset: 29px 29px 29px 29px;
+    z-index: -1;
+    border: 1px solid #81584a;
+  }
+  .wave {
+    position: absolute;
+    z-index: -1;
+    left: -140px;
+    bottom: -276px;
+    width: 720px;
+    height: 630px;
+    color: #b58472;
+    opacity: .35;
+  }
+  .copy {
+    width: 650px;
+    padding: 81px 0 0 74px;
+  }
+  .label {
+    display: flex;
+    gap: 17px;
+    align-items: center;
+    text-transform: uppercase;
+    font: 640 14px/1 Inter, sans-serif;
+    letter-spacing: .19em;
+    color: #f3c9b6;
+  }
+  .label img { width: 52px; height: 52px; }
+  h1 {
+    margin: 43px 0 10px;
+    font: 400 94px/.91 Instrument, Georgia, serif;
+    letter-spacing: -.039em;
+  }
+  h1 em { color: #efbca5; }
+  .place {
+    margin: 22px 0 0;
+    font: 480 24px/1.3 Inter, sans-serif;
+    color: #f9ece0;
+    letter-spacing: -.023em;
+  }
+  .medical-id {
+    width: fit-content;
+    margin: 49px 0 0;
+    padding: 13px 15px 0 0;
+    border-top: 1px solid #a87766;
+    font: 510 15px/1.5 Inter, sans-serif;
+    color: #edd3c3;
+  }
+  .medical-id strong { color: #fff7ee; font-weight: 610; }
+  figure { margin: 0; }
+  .photo {
+    position: absolute;
+    top: 56px;
+    right: 58px;
+    height: 518px;
+    width: 486px;
+    border-radius: 3px 183px 3px 3px;
+    overflow: hidden;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 47% 44%; }
+  .trace {
+    position: absolute;
+    top: 45px;
+    right: 47px;
+    width: 508px;
+    height: 543px;
+    color: #e0aa94;
+  }
+</style>
+<main class="canvas">
+  <div class="frame"></div>
+  <svg class="wave" viewBox="0 0 700 600" fill="none" stroke="currentColor" aria-hidden="true">
+    <path d="M1 497C81 195 283-6 538 34c130 21 180 131 145 207-29 64-118 106-203 80"/>
+    <path d="M20 509C93 215 294 16 530 55c113 19 155 111 126 174-26 57-104 94-178 72"/>
+    <path d="M40 520C106 237 305 38 523 77c96 17 130 92 105 144-22 48-90 81-153 62"/>
+    <path d="M60 530C119 259 317 61 516 100c80 16 105 72 85 112-20 40-76 67-129 52"/>
+  </svg>
+  <section class="copy">
+    <div class="label"><img src="/favicon.svg" alt=""> Médica psiquiatra</div>
+    <h1>Dra. Caroline <em>Aires</em></h1>
+    <p class="place">Campinas, SP · Consultas online</p>
+    <p class="medical-id"><strong>Caroline Aires Henrique de Santana</strong><br>CRM-SP 166488 · RQE 104664</p>
+  </section>
+  <figure class="photo"><img src="/assets/caroline-aires-1080.webp" alt="Retrato da Dra. Caroline Aires"></figure>
+  <svg class="trace" viewBox="0 0 508 543" fill="none" stroke="currentColor" aria-hidden="true">
+    <path d="M1 472V18C1 9 9 1 18 1h303c101 0 186 83 186 184v284M507 511v31h-37"/>
+    <circle cx="507" cy="469" r="3.2" fill="#35231e"/>
+  </svg>
+</main>
+</html>

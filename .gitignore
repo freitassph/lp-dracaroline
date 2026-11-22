@@ -7,10 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependencies
-node_modules
-dist
-dist-ssr
+# Dependências, build e verificação local
+node_modules/
+/dist/
+/dist-ssr/
+/.vite/
+/coverage/
+/test-results/
+/playwright-report/
+*.tsbuildinfo
 *.local
 
 # Editor directories and files
@@ -24,10 +29,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Dados da captação, reunião e proposta comercial
-/docs/marketing/2026-11-09-captacao/
-/docs/marketing/2026-11-11-reuniao/
-/docs/security/2026-10-23-auditoria-dependencias.md
+# Acervo interno de captação, reuniões e segurança
+/docs/marketing/
+/docs/security/
 
 # Credenciais e metadados locais.
 .env
