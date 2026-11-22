@@ -65,20 +65,24 @@ export function beginMeasurement(id: string) {
     page_referrer: '',
   };
 
-  gtag('consent', 'default', { ...advertisingDenied, analytics_storage: 'denied' });
-  gtag('consent', 'update', { ...advertisingDenied, analytics_storage: 'granted' });
-  gtag('set', { ...pageFields, ads_data_redaction: true, send_page_view: false });
-  gtag('js', new Date());
-  gtag('config', id, {
+  const tagSettings = {
     send_page_view: false,
+    ads_data_redaction: true,
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
     cookie_domain: 'none',
     cookie_expires: 90 * 24 * 60 * 60,
+    cookie_flags: 'SameSite=Lax;Secure',
     cookie_update: false,
     ...pageFields,
     ...campaign,
-  });
+  };
+
+  gtag('consent', 'default', { ...advertisingDenied, analytics_storage: 'denied' });
+  gtag('consent', 'update', { ...advertisingDenied, analytics_storage: 'granted' });
+  gtag('set', tagSettings);
+  gtag('js', new Date());
+  gtag('config', id, tagSettings);
   gtag('event', 'page_view', { ...pageFields, send_to: id });
 
   const script = document.createElement('script');
@@ -95,7 +99,10 @@ export function stopMeasurement(id: string | null) {
     for (const cookie of document.cookie.split(';')) {
       const name = cookie.split('=')[0].trim();
       if (/^_ga(?:_[A-Z0-9]+)?$/.test(name)) {
-        document.cookie = name + '=; Max-Age=0; Path=/; SameSite=Lax; Secure';
+        const expired = name + '=; Max-Age=0; Path=/; SameSite=Lax; Secure';
+        document.cookie = expired;
+        // Earlier tag builds could create cookies with a Domain attribute.
+        document.cookie = expired + '; Domain=' + location.hostname;
       }
     }
   } catch {
