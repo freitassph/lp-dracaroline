@@ -67,8 +67,8 @@ export function beginMeasurement(id: string) {
 
   gtag('consent', 'default', { ...advertisingDenied, analytics_storage: 'denied' });
   gtag('consent', 'update', { ...advertisingDenied, analytics_storage: 'granted' });
-  gtag('js', new Date());
   gtag('set', { ...pageFields, ads_data_redaction: true, send_page_view: false });
+  gtag('js', new Date());
   gtag('config', id, {
     send_page_view: false,
     allow_google_signals: false,
