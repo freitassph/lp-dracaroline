@@ -59,10 +59,16 @@ export function beginMeasurement(id: string) {
     ad_personalization: 'denied',
   };
 
+  const pageFields = {
+    page_location: site.origin + '/',
+    page_title: 'Página inicial',
+    page_referrer: '',
+  };
+
   gtag('consent', 'default', { ...advertisingDenied, analytics_storage: 'denied' });
   gtag('consent', 'update', { ...advertisingDenied, analytics_storage: 'granted' });
   gtag('js', new Date());
-  gtag('set', 'ads_data_redaction', true);
+  gtag('set', { ...pageFields, ads_data_redaction: true, send_page_view: false });
   gtag('config', id, {
     send_page_view: false,
     allow_google_signals: false,
@@ -70,12 +76,10 @@ export function beginMeasurement(id: string) {
     cookie_domain: 'none',
     cookie_expires: 90 * 24 * 60 * 60,
     cookie_update: false,
-    page_location: site.origin + '/',
-    page_title: 'Página inicial',
-    page_referrer: '',
+    ...pageFields,
     ...campaign,
   });
-  gtag('event', 'page_view', { send_to: id });
+  gtag('event', 'page_view', { ...pageFields, send_to: id });
 
   const script = document.createElement('script');
   script.async = true;
