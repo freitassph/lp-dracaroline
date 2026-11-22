@@ -4,7 +4,12 @@ import { readFile, readdir } from 'node:fs/promises';
 const outDir = new URL('../dist/', import.meta.url);
 const read = path => readFile(new URL(path, outDir), 'utf8');
 const binary = path => readFile(new URL(path, outDir));
-const htmlFiles = (await readdir(outDir, { recursive: true })).filter(path => path.endsWith('.html')).sort();
+const verificationFile = 'google742b2d6687b449d9.html';
+const verificationSource = await readFile(new URL('../public/' + verificationFile, import.meta.url));
+assert.ok(verificationSource.equals(await binary(verificationFile)), 'Arquivo de verificação deve ser copiado byte a byte.');
+const htmlFiles = (await readdir(outDir, { recursive: true }))
+  .filter(path => path.endsWith('.html') && path !== verificationFile)
+  .sort();
 const documents = new Map(await Promise.all(htmlFiles.map(async path => [path, await read(path)])));
 const home = documents.get('index.html');
 
@@ -81,8 +86,15 @@ assert.equal(ico.readUInt16LE(4), 3);
 assert.deepEqual([ico[6], ico[22], ico[38]], [16, 32, 48]);
 
 const config = JSON.parse(await readFile(new URL('../vercel.json', import.meta.url), 'utf8'));
-assert.equal(config.cleanUrls, true);
-assert.equal(config.rewrites, undefined);
+assert.notEqual(config.cleanUrls, true, 'A URL do arquivo de verificação precisa manter .html.');
+assert.deepEqual(config.rewrites, [
+  { source: '/privacidade', destination: '/privacidade.html' },
+  { source: '/termos', destination: '/termos.html' },
+  { source: '/leituras/:slug', destination: '/leituras/:slug.html' },
+]);
+assert.deepEqual(config.headers.find(rule => rule.source === '/' + verificationFile)?.headers, [
+  { key: 'X-Robots-Tag', value: 'noindex' },
+]);
 const headers = Object.fromEntries(config.headers[0].headers.map(({ key, value }) => [key, value]));
 assert.equal(headers['Referrer-Policy'], 'no-referrer');
 assert.equal(headers['X-Content-Type-Options'], 'nosniff');
@@ -90,4 +102,4 @@ assert.match(headers['Content-Security-Policy'], /frame-ancestors 'none'/);
 assert.match(headers['Content-Security-Policy'], /form-action 'none'/);
 assert.doesNotMatch(headers['Content-Security-Policy'], /unsafe-inline|unsafe-eval/);
 
-console.log('Artefato verificado: 7 rotas, 1 URL indexável, 2 mensagens de contato, mapa, metadados, 3 formatos de ícone e cabeçalhos declarados.');
+console.log('Artefato verificado: 7 rotas, 1 URL indexável, 2 mensagens de contato, mapa, metadados, verificação Google, 3 formatos de ícone e cabeçalhos declarados.');
