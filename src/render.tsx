@@ -40,6 +40,7 @@ export function renderDocument(template: string, pathname: string) {
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      {home && <link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />}
       {home ? <SearchMetadata /> : <meta name="robots" content="noindex, follow" />}
     </>,
   );
