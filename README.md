@@ -25,7 +25,7 @@ npm run check
 
 ## Aceite e operação
 
-A origem pública configurada é `https://dracaroline.vercel.app/`. A home é a única URL no sitemap. Leituras e páginas legais são navegáveis e usam `noindex, follow`. A medição começa desligada. Quando o stream aprovado for configurado no domínio oficial, o aviso oferece consentimento, recusa e revisão das preferências. A documentação descreve a operação do stream e da Meta Ads.
+A origem pública configurada é `https://dracarolineaires.com.br/`. A home é a única URL no sitemap. Leituras e páginas legais são navegáveis e usam `noindex, follow`. A medição começa desligada. Quando o stream aprovado for configurado no domínio oficial, o aviso oferece consentimento, recusa e revisão das preferências. A documentação descreve a operação do stream e da Meta Ads.
 
 - [Produto, conteúdo e fontes](docs/01-produto-e-conteudo.md)
 - [Marca, design e motion](docs/02-marca-design-e-motion.md)

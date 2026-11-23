@@ -1,5 +1,5 @@
 export const site = {
-  origin: 'https://dracaroline.vercel.app',
+  origin: 'https://dracarolineaires.com.br',
   name: 'Dra. Caroline Aires',
   fullName: 'Caroline Aires Henrique de Santana',
   specialty: 'Psiquiatria',

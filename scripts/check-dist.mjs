@@ -15,7 +15,7 @@ const home = documents.get('index.html');
 
 assert.ok(home, 'A home precisa estar no artefato.');
 const canonical = home.match(/<link rel="canonical" href="([^"]+)"\s*\/>/)?.[1];
-assert.equal(canonical, 'https://dracaroline.vercel.app/');
+assert.equal(canonical, 'https://dracarolineaires.com.br/');
 assert.match(home, /<meta name="robots" content="index, follow, max-image-preview:large"/);
 assert.match(home, /<h1[^>]*>Psiquiatria em/);
 assert.match(home, /<address><strong>Espaço Núr<\/strong><br\s*\/>Rua Percílio Neto, 293/);
